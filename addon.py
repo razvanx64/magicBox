@@ -6,6 +6,7 @@
 #------------------------------------------------------------
 
 from xbmcswift2 import Plugin
+plugin = Plugin()
 
 YOUTUBE = (
 {
@@ -13,7 +14,7 @@ YOUTUBE = (
         'logo': 'bike.jpg',
         'channel_id': 'UCXqlds5f7B2OOs9vQuevl4A',
         'user': 'redbull',
-    },
+    },   
 {
         'name': 'Red Bull - Motor Sports',
         'logo': 'moto.jpg',
@@ -79,18 +80,16 @@ YOUTUBE = (
 
 YOUTUBE_URL ='plugin://plugin.video.youtube/channel/%s/?page=1'
 
-plugin = Plugin()
+@plugin.route('/')
+def show_root_menu():
+    items = [{
+        'label': channel['name'],
+        'thumbnail': get_logo(channel['logo']),
+        'path': YOUTUBE_URL % channel['channel_id'],
+    } for channel in YOUTUBE]
+    return plugin.finish(items)
     
-@plugin.route('/') 
- def redBull_youtube():
-     items = [
-     {
-         'label': channel['name'],
-         'thumbnail': get_logo(channel['logo']),
-         'path': YOUTUBE_URL % channel['channel_id'],
-     } for channel in YOUTUBE]
-     return plugin.finish(items)    
-    
+
 def get_logo(logo):
     addon_id = plugin._addon.getAddonInfo('id')
     return 'special://home/addons/%s/resources/%s' % (addon_id, logo)
