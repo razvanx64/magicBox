@@ -77,11 +77,9 @@ YOUTUBE = (
     },    
 )
 
-
 YOUTUBE_URL ='plugin://plugin.video.youtube/channel/%s/?page=1'
 
 plugin = Plugin()
-  
     
 @plugin.route('/') 
  def redBull_youtube():
@@ -93,11 +91,9 @@ plugin = Plugin()
      } for channel in YOUTUBE]
      return plugin.finish(items)    
     
-
 def get_logo(logo):
     addon_id = plugin._addon.getAddonInfo('id')
     return 'special://home/addons/%s/resources/%s' % (addon_id, logo)
-
 
 def log(text):
     plugin.log.info(text)
