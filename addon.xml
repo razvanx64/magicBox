@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.redbull-channel" name="Red Bull Channel" version="1.0.2" provider-name="razvanx64 (softx64.com)">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+    <import addon="script.module.xbmcswift2" version="2.4.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <language>en</language>
+    <summary lang="en_gb">RedBull youtube channel</summary>
+    <description lang="en_gb">RedBull youtube channel</description>
+    <platform>all</platform>
+    <source>https://github.com/razvanx64/plugin.video.redbull-channel</source>
+    <email>razvanx64@gmail.com</email>
+    <license>GNU GENERAL PUBLIC LICENSE. - 07.11.2019</license>
+    <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+	</assets>
+  </extension>
+</addon>
